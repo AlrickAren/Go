@@ -15,13 +15,13 @@ jobs:
       - name: Publish to Docker Hub
         run: docker push arenalrick/Go:latest
 
-deploy:
-  needs: build
-  runs-on: [ip-172-31-11-187]
-  steps:
-    - name: Pull image from docker hub
-      run: docker pull arenalrick/Go:latest
-    - name: Delete old container
-      run: docker rm -f go-example-container
-    - name: Run docker container
-      run: docker run -d -p 8080:8080 --name go-example-container arenalrick/Go:latest
+  deploy:
+    needs: build
+    runs-on: [ip-172-31-11-187]
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull arenalrick/Go:latest
+      - name: Delete old container
+        run: docker rm -f go-example-container
+      - name: Run docker container
+        run: docker run -d -p 8080:8080 --name go-example-container arenalrick/Go:latest
