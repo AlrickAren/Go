@@ -2,10 +2,9 @@ package main
 
 import . "fmt"
 
-func main () {
+func main() {
 
 	Println("Hello world!  This is my first Go program!")
-
 
 	var a int = 5
 	var b float32 = 4.32
@@ -22,6 +21,6 @@ func main () {
 	Println(e)
 	Println(f)
 
-	// test commit 1
+	// test commit 2
 
 }
