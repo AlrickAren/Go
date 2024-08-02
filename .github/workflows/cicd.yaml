@@ -11,17 +11,17 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{secrets.DOCKER_HUB_LOGIN}} -p ${{DOCKER_HUB_PASSWORD}}
       - name: Build docker image
-        run: docker build -t AlrickAren/Go .
+        run: docker build -t alrickaren/go .
       - name: Publish to Docker Hub
-        run: docker push arenalrick/Go:latest
+        run: docker push arenalrick/go:latest
 
   deploy:
     needs: build
     runs-on: [ip-172-31-11-187]
     steps:
       - name: Pull image from docker hub
-        run: docker pull arenalrick/Go:latest
+        run: docker pull arenalrick/go:latest
       - name: Delete old container
         run: docker rm -f go-example-container
       - name: Run docker container
-        run: docker run -d -p 8080:8080 --name go-example-container arenalrick/Go:latest
+        run: docker run -d -p 8080:8080 --name go-example-container arenalrick/go:latest

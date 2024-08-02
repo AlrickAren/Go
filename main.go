@@ -20,6 +20,7 @@ func main() {
 	Println(d)
 	Println(e)
 	Println(f)
+	Println(pi)
 
 	// test commit 5
 
