@@ -1,0 +1,27 @@
+name: CICD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Login to docker hub
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -P ${{DOCKER_PASSWORD}}
+      - name: Build docker image
+        run: docker build -t AlrickAren/Go .
+      - name: Publish to Docker Hub
+        run: docker push arenalrick/Go:latest
+
+deploy:
+  needs: build
+  runs-on: [ip-172-31-11-187]
+  steps:
+    - name: Pull image from docker hub
+      run: docker pull arenalrick/Go:latest
+    - name: Delete old container
+      run: docker rm -f go-example-container
+    - name: Run docker container
+      run: docker run -d -p 8080:8080 --name go-example-container arenalrick/Go:latest
