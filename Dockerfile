@@ -1,7 +1,8 @@
-FROM ubuntu:latest
+FROM golang:1.22
 LABEL authors="arena"
-WORKDIR /usr
-COPY main.exe main.exe
+WORKDIR /usr/src/app
+COPY . .
 EXPOSE 8080
-CMD /usr/main.exe
+RUN go build -v -o /usr/local/bin/app ./...
+CMD ["app"]
 
