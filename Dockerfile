@@ -4,5 +4,5 @@ WORKDIR /usr/src/app
 COPY . .
 EXPOSE 8080
 RUN go build -v -o /usr/local/bin/app
-CMD ["app"]
+CMD ["main"]
 
