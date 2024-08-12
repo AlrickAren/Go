@@ -6,6 +6,7 @@ RUN pwd
 RUN ls
 EXPOSE 8080
 RUN go build ./main.go
+RUN mkdir /usr/local/bin/app/
 RUN cp ./main /usr/local/bin/app/
 
 
