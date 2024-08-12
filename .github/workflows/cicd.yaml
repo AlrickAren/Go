@@ -31,7 +31,7 @@ jobs:
       - name: Get list of images
         run: docker images
       - name: Publish to Docker Hub
-        run: docker push arenalrick/go:latest
+        run: docker push alrickaren/go:latest
 
   deploy:
     needs: build
