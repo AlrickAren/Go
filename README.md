@@ -1,3 +1,3 @@
 # Go
 
-This is the first Go project repo.
+This is the first Go project repo.  Where to deploy it?
