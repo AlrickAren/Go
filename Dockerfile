@@ -5,6 +5,7 @@ COPY . /usr/src/app
 RUN pwd
 RUN ls
 EXPOSE 8080
-RUN go build -v -o /usr/local/bin/app
-CMD ["main"]
+RUN go build ./main.go
+RUN cp ./main /usr/local/bin/app/
+
 
