@@ -27,7 +27,7 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{secrets.DOCKER_HUB_LOGIN}} -p ${{secrets.DOCKER_HUB_PASSWORD}}
       - name: Build docker image
-        run: docker build -t alrickaren/go .
+        run: docker build . -t alrickaren/go
       - name: Publish to Docker Hub
         run: docker push arenalrick/go:latest
 
